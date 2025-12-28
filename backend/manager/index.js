@@ -15,16 +15,21 @@ app.get('/', (req, res) => {
 });
 
 const { spawn } = require('child_process');
-
-// ... (rest of imports)
+const operationToId = {
+    'sum': 1,
+    'average': 2,
+    'maxmin': 3
+};
 
 app.post('/api/data', (req, res) => {
-    const data = req.body.data; // Assumiamo che il frontend mandi { data: "..." }
-    console.log('Node received:', data);
+    const operation = req.body.operation;
+    const numbers = req.body.numbers;
+    console.log('Node received:', operation, numbers);
+    const operationId = operationToId[operation] || 0;
     
     // 1. Lanciamo lo script Python
     // 'python3' è il comando, ['server/script.py', data] sono gli argomenti
-    const pythonProcess = spawn('python3', ['server/script.py', data]);
+    const pythonProcess = spawn('python3', ['./backend/scripts/main.py', operationId.toString(), JSON.stringify(numbers)]);
     
     let pythonData = '';
 

@@ -1,18 +1,24 @@
 import sys
 import json
-import maxmin
+from maxmin import maxmin
+from average import average
 
 try:
-    function, n, data = sys.argv[1], sys.argv[2], None
+    operation, n_str, data = sys.argv[1], sys.argv[2], None
+    n = json.loads(n_str)
 
-    match function:
+    match operation:
         case "1":
-            data = maxmin(n)
+            data = sum(n)
+        case "2":
+            data = average(n)
+        case "3":   
+            data = maxmin(n)    
     
     
     # Creiamo una risposta JSON
     response = {
-        "original": [function, n],
+        "original": [operation, n],
         "processed": data,
         "status": "success" if data is not None else "error"
     }

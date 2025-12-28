@@ -1,0 +1,41 @@
+.custom-button {
+    background: #d81b60;
+    background: linear-gradient(to right, #d81b60, #ad1457);
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    outline: none;
+}
+
+.custom-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(216, 27, 96, 0.4);
+}
+
+.custom-button:active {
+    transform: scale(0.98);
+}
+
+.custom-button.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    box-shadow: none;
+}
+
+.custom-button.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: none;
+}

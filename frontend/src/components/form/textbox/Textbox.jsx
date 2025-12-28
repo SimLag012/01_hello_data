@@ -1,19 +1,24 @@
 import './Textbox.css';
 
-function Textbox({ id, name, value, onChange, placeholder }) {
+function Textbox({ id, name, value, onChange, placeholder, icon, label, type = "text" }) {
     return(
-        <div className="textbox-container">
-            <input 
-                type="text" 
-                className="textbox-input" 
-                id={id} 
-                name={name}
-                value={value}
-                onChange={onChange}
-                placeholder={placeholder}
-            />
+        <div className="textbox-wrapper">
+            {label && <label htmlFor={id} className="label-text">{label}</label>}
+            <div className="textbox-container">
+                {icon && <div className="textbox-icon">{icon}</div>}
+                <input 
+                    type={type} 
+                    className="textbox-input" 
+                    id={id} 
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    placeholder={placeholder}
+                />
+            </div>
         </div>
     );
 }
 
 export default Textbox;   
+
